@@ -7,8 +7,12 @@ async def select_query(request):
         columns = request.query['columns']
         table_name = request.query['table']
         limit = request.query['limit']
+        grouping = request.query['group']
+        ordering = request.query['order']
+        direction = request.query['direction']
+        
         query_builder = QueryBuilder()
-        query_string = query_builder.build_select(columns, table_name, limit)
+        query_string = query_builder.build_select(columns, table_name, limit, grouping, ordering, direction)
 
         clickhouse_http_query = "http://mcdonnelloprojects.xyz:8123//?query={0}".format(query_string)
         async with ClientSession() as session:
