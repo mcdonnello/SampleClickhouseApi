@@ -3,7 +3,7 @@ class QueryBuilder(object):
     def __init__(self):
         pass
     def build_select(self, columns, table_name, limit):
-        return "SELECT {0} FROM {1} LIMIT {2}".format(columns, table_name, limit)
+        return "SELECT {0} FROM {1} LIMIT {2} FORMAT JSON".format(columns, table_name, limit)
 
 
 

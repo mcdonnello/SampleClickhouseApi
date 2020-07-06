@@ -17,7 +17,7 @@ async def select_query(request):
         await session.close()
 
         # return a success json response with status code 200 i.e. 'OK'
-        return web.Response(text=json.dumps(response_data), status=200)
+        return web.Response(text=response_data, status=200)
     except Exception as e:
         response_obj = { 'status' : 'failed', 'reason': str(e) }
         # return failed with a status code of 500 i.e. 'Server Error'
