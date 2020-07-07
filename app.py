@@ -10,5 +10,6 @@ app = web.Application()
 
 app.router.add_get('/', handle)
 app.router.add_get('/query/select/', select_query.select_query)
+app.router.add_get('/query/tables/', select_query.show_tables_query)
 
 web.run_app(app)
